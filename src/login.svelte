@@ -2,6 +2,14 @@
   <script>
   import { navigate } from "svelte-navigator";
     import "./style.css"
+    import axios from "axios"
+   
+    function handleclick() {
+      axios.post('/https://apimocha.com/assignment3/login')
+    }
+
+
+
   </script>
 <div class="page-container">
  
@@ -25,7 +33,7 @@
   <label for="keep-signin">Keep me signed in</label>
   <span id="already-member"on:click={() => navigate("/signup")}>Already a member?</span>
     </div>
-    <div class="subscribe">SUBSCRIBE</div>
+    <div class="subscribe" on:click={() => handleclick()}>SUBSCRIBE</div>
   </div>
 
 </div>

@@ -2,6 +2,7 @@
   import { navigate } from "svelte-navigator";
    import "./home.css"
 
+
 </script>
 
 <div class="container">
