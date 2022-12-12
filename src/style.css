@@ -79,6 +79,7 @@ label{
 
 #already-member{
     color: rgb(16,126,239);
+    cursor: pointer;
 }
 
 .subscribe{
