@@ -1,14 +1,25 @@
 
   <script>
   import { navigate } from "svelte-navigator";
-    import "./style.css"
-    import axios from "axios"
+    import "./style.css";
+    import axios from "axios";
    
-    function handleclick() {
-      axios.post('/https://apimocha.com/assignment3/login')
+   const handleclick = () =>{
+    console.log("Inam")
+    let data = {
+      username: 'Inam',
+      password: "123"
     }
+    axios
+    .post('https://apimocha.com/carbon/login', data)
+    .then((res)=>{
+      console.log(res);
+    
+      localStorage.setItem('loggedIn', res.data.loggedIn)
+    })
 
-
+   };
+  
 
   </script>
 <div class="page-container">
@@ -31,9 +42,9 @@
     <div class="options">
       <input type="checkbox" id="keep-signin" name="keep-signin">
   <label for="keep-signin">Keep me signed in</label>
-  <span id="already-member"on:click={() => navigate("/signup")}>Already a member?</span>
+  <span id="already-member" on:click={() => navigate("/signup")}>Already a member?</span>
     </div>
-    <div class="subscribe" on:click={() => handleclick()}>SUBSCRIBE</div>
+    <button class="subscribe" on:click={()=> handleclick()}>SUBSCRIBE</button>
   </div>
 
 </div>

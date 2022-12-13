@@ -2,6 +2,22 @@
   <script>
   import { navigate } from "svelte-navigator";
     import "./style.css"
+    import axios from "axios"
+
+    const handleclick = () =>{
+    console.log("wajahat")
+    let data = {
+      fullname: "wajahat"
+    }
+    axios
+    .post('https://apimocha.com/carbon/signup', data)
+    .then((res)=>{
+      console.log(res);
+    
+      localStorage.setItem('signedUp', res.data.signedUp)
+    })
+
+   };
   </script>
 <div class="page-container">
  
@@ -29,7 +45,7 @@
   <label for="keep-signin">Keep me signed in</label>
   <span id="already-member"on:click={() => navigate("/login")}>login to account?</span>
     </div>
-    <div class="subscribe">SUBSCRIBE</div>
+    <button class="subscribe" on:click={() => handleclick() } >SUBSCRIBE</button>
   </div>
 
 </div>
